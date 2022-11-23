@@ -1,0 +1,46 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: serif;
+}
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#question{
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+
+.container{
+    width: 200px;
+    max-width: 90%;
+    padding: 10px;
+}
+
+.btnnflex{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 50px;
+    margin: 20px;
+}
+
+.ansbttn{
+    background-color: beige;
+    padding: 6px, 12px;
+    font-size: 20px;
+}
+.strt-btn{
+    background-color: blue;
+    font-size: 50px;
+    justify-self: center;
+}
+
+.hidden{
+    display: none;
+}
