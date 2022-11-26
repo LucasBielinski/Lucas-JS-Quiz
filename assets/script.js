@@ -41,8 +41,14 @@ function reset() {
 }
 
 
-function pickAnswer() {
+function pickAnswer(t) {
+var picked = t.target
+var correct = picked.dataset.correct
+if () {
 
+}else{
+    
+}
 }
 
 var questions = [
@@ -54,6 +60,33 @@ var questions = [
         {text: 'HTML', correct: false},
         {text: 'Scratch', correct: false}
       ]
-    }
+    },
+    {
+        question: 'what does an array hold?',
+        answers: [
+            {text: 'boolean', correct: false},
+            {text: 'string', correct: false},
+            {text: 'numbers', correct: false},
+            {text: 'all', correct: true},
+        ]
+    }, 
+    {
+        question: 'to see your script in the console, type console._',
+        answers: [
+            {text: 'see', correct: false},
+            {text: 'do', correct: false},
+            {text: 'go', correct: false},
+            {text: 'log', correct: true},
+        ]
+    },
+    {
+        question: 'what is an object?',
+        answers: [
+            {text: 'a box', correct: false},
+            {text: 'collection of properties', correct: true},
+            {text: 'nothing', correct: false},
+            {text: 'an element', correct: false},
+        ]
+    },
 
 ]
