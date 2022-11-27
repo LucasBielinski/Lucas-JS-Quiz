@@ -4,12 +4,15 @@ var questionSection = document.getElementById ("question-container")
 var qEl = document.getElementById ('question')
 var aEl = document.getElementById ('answers')
 var resp = document.getElementById ('response')
+var totalTime = 20;
+var timer = document.getElementById ("timer")
+
 
 var randomQuestion, questionIndex
 
 start.addEventListener('click', begin)
+start.addEventListener('click', alarm)
 function begin() {
-console.log("started")
 start.classList.add("hidden")
 randomQuestion = questions.sort(() => Math.random() -.5)
 questionIndex = 0
@@ -27,7 +30,7 @@ questionIndex++
 question.answers.forEach(answer => {
     var bttn = document.createElement('button')
     bttn.innerText = answer.text
-    bttn.classList.add ('ansbtn')
+    bttn.classList.add ('ansbttn')
     if (answer.correct) {
         bttn.dataset.correct = answer.correct
     }
@@ -48,11 +51,24 @@ var picked = t.target
 var correct = picked.dataset.correct
 if (correct) {
     newQuestion() 
-    resp.innerText = ''
+    resp.innerText = ('correct')
 } else {
    console.log('wrong') 
    resp.innerText='Try again'
 }
+}
+
+var timeRemaning = setInterval(alarm, 1000);
+
+function alarm () {
+    
+    if (totalTime === -1) {
+    console.log ("time is up")
+    clearTimeout (timeRemaning)
+} else {
+    timer.innerText = totalTime + " time remaining"
+    totalTime--; }
+
 }
 
 var questions = [
