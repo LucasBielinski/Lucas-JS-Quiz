@@ -3,6 +3,7 @@ var questionSection = document.getElementById ("question-container")
 
 var qEl = document.getElementById ('question')
 var aEl = document.getElementById ('answers')
+var resp = document.getElementById ('response')
 
 var randomQuestion, questionIndex
 
@@ -22,6 +23,7 @@ switchQuestion(randomQuestion[questionIndex])
 }
 function switchQuestion(question) {
 qEl.innerText = question.question
+questionIndex++
 question.answers.forEach(answer => {
     var bttn = document.createElement('button')
     bttn.innerText = answer.text
@@ -44,10 +46,12 @@ function reset() {
 function pickAnswer(t) {
 var picked = t.target
 var correct = picked.dataset.correct
-if () {
-
-}else{
-    
+if (correct) {
+    newQuestion() 
+    resp.innerText = ''
+} else {
+   console.log('wrong') 
+   resp.innerText='Try again'
 }
 }
 
