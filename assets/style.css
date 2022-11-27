@@ -3,11 +3,9 @@
     font-family: serif;
 }
 body{
-    padding: 0;
-    margin: 0;
     display: flex;
+    align-content: center;
     justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -18,6 +16,11 @@ body{
 }
 
 .container{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     max-width: 90%;
     padding: 10px;
@@ -34,11 +37,21 @@ body{
     background-color: beige;
     padding: 6px, 12px;
     font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 .strt-btn{
     background-color: blue;
     font-size: 50px;
     justify-self: center;
+}
+
+.time{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .hidden{
