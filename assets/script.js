@@ -6,22 +6,25 @@ var aEl = document.getElementById ('answers')
 var resp = document.getElementById ('response')
 var totalTime = 20;
 var timer = document.getElementById ("timer")
-
+var timeRemaning
 
 var randomQuestion, questionIndex
 
 start.addEventListener('click', begin)
-start.addEventListener('click', alarm)
 function begin() {
 start.classList.add("hidden")
 randomQuestion = questions.sort(() => Math.random() -.5)
 questionIndex = 0
 questionSection.classList.remove("hidden")
+timeRemaning = setInterval(alarm, 1000);
 newQuestion()
 }
 
 function newQuestion() {
     reset()
+    if (questionIndex >= randomQuestion.length){
+        gameEnd()
+    }
 switchQuestion(randomQuestion[questionIndex])
 }
 function switchQuestion(question) {
@@ -54,21 +57,29 @@ if (correct) {
     resp.innerText = ('correct')
 } else {
    console.log('wrong') 
-   resp.innerText='Try again'
+   resp.innerText='Try again, -3 seconds'
+   totalTime -= 3;
 }
 }
 
-var timeRemaning = setInterval(alarm, 1000);
+
 
 function alarm () {
-    
-    if (totalTime === -1) {
+    if (totalTime <=0 ) {
     console.log ("time is up")
+    gameEnd ()
     clearTimeout (timeRemaning)
 } else {
     timer.innerText = totalTime + " time remaining"
     totalTime--; }
 
+}
+
+function gameEnd() {
+    qEl.innerText = "Game over"
+    resp.innerText = ''
+    aEl.classList.add('hidden')
+    timer.classList.add('hidden')
 }
 
 var questions = [
