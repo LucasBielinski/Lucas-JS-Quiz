@@ -7,7 +7,10 @@ var resp = document.getElementById ('response')
 var totalTime = 20;
 var timer = document.getElementById ("timer")
 var timeRemaning
-
+var form = document.getElementById ('form')
+var submitBttn = document.getElementById ('sbmit')
+var score = document.getElementById ('timedisplay')
+var nameInput = document.getElementById ('name')
 var randomQuestion, questionIndex
 
 start.addEventListener('click', begin)
@@ -74,12 +77,29 @@ function alarm () {
     totalTime--; }
 
 }
+var winnerData = {
+    finalScore: totalTime,
+    name: nameInput.value.trim(),
+}
 
 function gameEnd() {
     qEl.innerText = "Game over"
     resp.innerText = ''
+    score.innerText = 'final time ' +totalTime
     aEl.classList.add('hidden')
     timer.classList.add('hidden')
+    form.classList.remove ('hidden')
+}
+
+submitBttn.addEventListener ('click', submission)
+function submission (event) {
+    event.preventDefault()
+    localStorage.setItem ('winner', JSON.stringify(winnerData));
+
+
+
+    
+   
 }
 
 var questions = [
