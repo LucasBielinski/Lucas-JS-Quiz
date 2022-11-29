@@ -77,12 +77,10 @@ function alarm () {
     totalTime--; }
 
 }
-var winnerData = {
-    finalScore: totalTime,
-    name: nameInput.value.trim(),
-}
+
 
 function gameEnd() {
+    clearTimeout (timeRemaning)
     qEl.innerText = "Game over"
     resp.innerText = ''
     score.innerText = 'final time ' +totalTime
@@ -94,13 +92,20 @@ function gameEnd() {
 submitBttn.addEventListener ('click', submission)
 function submission (event) {
     event.preventDefault()
-    localStorage.setItem ('winner', JSON.stringify(winnerData));
-
-
-
-    
-   
+    var winnerData = {
+    finalScore: totalTime,
+    name: nameInput.value.trim(),
 }
+  var storedScores = JSON.parse(localStorage.getItem('winner'));
+    if (storedScores === null) {
+        storedScores = []; }
+        storedScores.push(winnerData); 
+        localStorage.setItem ('winner', JSON.stringify(storedScores)); 
+        
+    
+    
+}
+
 
 var questions = [
     {
