@@ -101,7 +101,7 @@ function submission (event) {
         storedScores = []; }
         storedScores.push(winnerData); 
         localStorage.setItem ('winner', JSON.stringify(storedScores)); 
-        
+        window.location.href = "highscore.html"
     
     
 }
