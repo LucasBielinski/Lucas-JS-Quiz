@@ -10,7 +10,7 @@ N/A
 ## Usage
 In order to use the project, click the "JavaScript Quiz!" button to begin the game. Then click which answer you think is correct. Selecting the wrong answer will result in 3 seconds taken from your overall time. When the timer hits 0 or you go through all four questions, then the game will end. Then enter your name and hit "submit". You will be taken to the "High Score" Page, where hitting "clear" will remove names from the page. Hitting "return" will take you back to the game. 
 
-![image of project](./assets/images/quiz.png)
+![image of project](./assets/image/quiz.png)
 
 ## Credits
 N/A
