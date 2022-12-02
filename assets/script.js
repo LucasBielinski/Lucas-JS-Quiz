@@ -1,3 +1,4 @@
+
 var start = document.getElementById("strt")
 var questionSection = document.getElementById ("question-container")
 
@@ -12,27 +13,33 @@ var submitBttn = document.getElementById ('sbmit')
 var score = document.getElementById ('timedisplay')
 var nameInput = document.getElementById ('name')
 var randomQuestion, questionIndex
-
+// begins the game, 
 start.addEventListener('click', begin)
 function begin() {
+// hides the start button 
 start.classList.add("hidden")
+// sorts questions at random
 randomQuestion = questions.sort(() => Math.random() -.5)
 questionIndex = 0
+// unhides hidden class
 questionSection.classList.remove("hidden")
 timeRemaning = setInterval(alarm, 1000);
 newQuestion()
 }
-
+// calls new question
 function newQuestion() {
     reset()
+    // ends game if no more questions
     if (questionIndex >= randomQuestion.length){
         gameEnd()
     }
 switchQuestion(randomQuestion[questionIndex])
 }
+//sets up new question
 function switchQuestion(question) {
 qEl.innerText = question.question
 questionIndex++
+// adds buttons for anwers
 question.answers.forEach(answer => {
     var bttn = document.createElement('button')
     bttn.innerText = answer.text
@@ -44,14 +51,14 @@ question.answers.forEach(answer => {
     aEl.appendChild(bttn)
 })
 }
-
+// magic, resets answers
 function reset() {
     while (aEl.firstChild)
     aEl.removeChild
     (aEl.firstChild)
 }
 
-
+// allows answers to be picked
 function pickAnswer(t) {
 var picked = t.target
 var correct = picked.dataset.correct
@@ -66,7 +73,7 @@ if (correct) {
 }
 
 
-
+// if the timer runs out the game ends
 function alarm () {
     if (totalTime <=0 ) {
     console.log ("time is up")
@@ -78,7 +85,7 @@ function alarm () {
 
 }
 
-
+// ends the game
 function gameEnd() {
     clearTimeout (timeRemaning)
     qEl.innerText = "Game over"
@@ -88,7 +95,7 @@ function gameEnd() {
     timer.classList.add('hidden')
     form.classList.remove ('hidden')
 }
-
+// submits the form info
 submitBttn.addEventListener ('click', submission)
 function submission (event) {
     event.preventDefault()
@@ -96,6 +103,7 @@ function submission (event) {
     finalScore: totalTime,
     name: nameInput.value.trim(),
 }
+// stores in local storage
   var storedScores = JSON.parse(localStorage.getItem('winner'));
     if (storedScores === null) {
         storedScores = []; }

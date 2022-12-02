@@ -12,7 +12,7 @@ function getClass(boolean){
     }
 
 }
-
+// displays final score
 function init(){
     var storedScores = JSON.parse(localStorage.getItem('winner'));
     if (storedScores === null) {
@@ -25,13 +25,14 @@ function init(){
         scoreList.innerHTML += `<li class="${getClass(score.positive)}">${score.name} scored ${score.finalScore}</li>`
     }
 }
-
+// removes storage
 function removeStorage(event){
     event.preventDefault()
     console.log("Hey removing")
     localStorage.removeItem('winner')
     document.location.reload()
 }
+// goes back to original game
 function rerun(){
     window.location.href = "index.html"
 }
@@ -39,5 +40,5 @@ remove.addEventListener('click', removeStorage)
 goBack.addEventListener('click', rerun)
 
 
-
+// sets up the page
 init()
