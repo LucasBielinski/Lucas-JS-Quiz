@@ -9,11 +9,12 @@ body{
     box-sizing: border-box;
     background-image: linear-gradient(to bottom right, blue, white);
 }
+/* sets rules for the question */
 #question{
     margin-bottom: 30px;
     font-size: 50px;
 }
-
+/* allows the quiz to be centered */
 .container{
     padding: 0;
     margin: 0;
@@ -24,14 +25,14 @@ body{
     max-width: 90%;
     padding: 10px;
 }
-
+/* sets up button display */
 .btnnflex{
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 50px;
     margin: 20px;
 }
-
+/* sets rules for answer buttons */
 .ansbttn{
     background-color: beige;
     padding: 6px, 12px;
@@ -39,33 +40,35 @@ body{
     margin-left: 20px;
     margin-bottom: 20px;
 }
-
 .buttons{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
 }
+/* sets rules for start button */
 .strt-btn{
     background-image: linear-gradient(to bottom right, blue, white);
     font-size: 50px;
     margin-right: 150px;
     padding: 50px;
 }
-
+/* sets styling for submit button */
 #sbmit{
     background-image: linear-gradient(to bottom right, blue, white);
 }
+/* sets styling for response class */
 .resp{
     margin-bottom: 20px;
 }
+/* sets rules for timer */
 .time{
     display: flex;
     align-content: center;
     justify-content: center;
     
 }
-
+/* hides all with class display */
 .hidden{
     display: none;
 }
