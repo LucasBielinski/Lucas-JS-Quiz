@@ -20,3 +20,10 @@ N/A
 
 ## License
 N/A
+
+## How to Contribute
+
+For questions and contributions, you can reach me here:
+[Email](mailto:bielinskilucas@gmail.com)
+or
+[Github](https://github.com/LucasBielinski)
